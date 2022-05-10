@@ -1,0 +1,31 @@
+{% extends "datatable/table.html" %}
+
+{% block content %}
+<h1>Data Table</h1>
+<table id="myStaticDatatable">
+    <thead>
+        <tr>
+            <th>Country Name</th>
+            <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for country, population in data %}
+        <tr>
+            <td>{{ country }} </td>
+            <td>{{ population }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+        $(document).ready(function () {
+            $('#myStaticDatatable').DataTable();
+
+        });
+</script>
+{% endblock %}
